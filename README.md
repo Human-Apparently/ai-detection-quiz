@@ -8,7 +8,7 @@ The GitHub Pages website submits completed answers to Supabase through `submit_a
 
 A live API test verified persistence and retry behavior. **One known test record must be excluded from study statistics**; see [`supabase/TEST_DATA.md`](supabase/TEST_DATA.md) for its ID and filtering queries. Browser UI verification is still pending because this environment lacks a browser executable.
 
-Participants can download their own responses as CSV. Administrators can view and export all responses in Supabase Table Editor. No name or email is requested. This open questionnaire does not enforce one response per person.
+Administrators can view and export responses in Supabase Table Editor. Participant sharing and download controls were removed in the second interface review. No name or email is requested. This open questionnaire does not enforce one response per person.
 
 ## View
 
