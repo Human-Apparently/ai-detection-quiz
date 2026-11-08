@@ -1,3 +1,8 @@
-// Leave apiUrl empty for a design preview with no data collection.
-// Use an HTTPS response endpoint only after storage, CORS and privacy are configured.
-window.QUIZ_CONFIG = { apiUrl: "" };
+// Keep collection disabled until setup.sql has run and a real submission is verified.
+// Only the public Publishable / anon key belongs here; NEVER a secret/service_role key.
+window.QUIZ_CONFIG = {
+  collectionEnabled: false,
+  supabaseUrl: "https://pvsllbsyacpacikoguze.supabase.co",
+  publishableKey: "",
+  apiUrl: ""
+};

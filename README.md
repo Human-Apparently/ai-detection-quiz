@@ -16,7 +16,7 @@ All media are stored in `media/`; no external font service is used. Relative URL
 
 ## Connect collection later
 
-Set `apiUrl` in `config.js` to the independent submission endpoint. Keep it empty until the backend is ready.
+Supabase setup: see [`supabase/SETUP.zh-CN.md`](supabase/SETUP.zh-CN.md) and run [`supabase/setup.sql`](supabase/setup.sql). The project URL is configured; the public key is still missing. Keep `collectionEnabled: false` until a real submission is verified. A generic independent HTTPS endpoint is also supported through `apiUrl`.
 
 The endpoint must accept a JSON POST containing `id` (random UUID), `consent`, `version`, `answers` (five entries with `choice`, `confidence` and `seconds`) and total `duration`. Validate consent and every field, restrict CORS to the deployed website, make response IDs idempotent, score server-side and persist answers before reporting success. Return `{id, score, review}` where `review` has five `{answer, explanation, source}` entries. Return a non-2xx status if storage fails. Review the privacy text before launching the study.
 
