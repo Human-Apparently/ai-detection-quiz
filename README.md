@@ -2,11 +2,13 @@
 
 A simple, responsive seven-screen quiz: introduction, three images, one audio clip, one short text and a results page. No framework, package install or build step is required.
 
-## Current status: design preview
+## Current status: response collection enabled
 
-This version does **not collect or submit responses**. A visible banner explains preview mode. Answers stay in memory until the page is refreshed; participants can download their own answers as CSV. Scores and source explanations work locally for design review.
+The GitHub Pages website submits completed answers to Supabase through `submit_ai_quiz`. Answers are validated and scored in the database. Anonymous visitors cannot read, change, or delete response rows. The browser contains only the publishable key, which is intended to be public.
 
-A GitHub repository stores source code; it is not a response database. GitHub Pages serves static files and cannot store submissions. Before recruiting 100+ participants, connect an independent HTTPS endpoint and database. Do not put database passwords or private API keys in this repository.
+A live API test verified persistence and retry behavior. **One known test record must be excluded from study statistics**; see [`supabase/TEST_DATA.md`](supabase/TEST_DATA.md) for its ID and filtering queries. Browser UI verification is still pending because this environment lacks a browser executable.
+
+Participants can download their own responses as CSV. Administrators can view and export all responses in Supabase Table Editor. No name or email is requested. This open questionnaire does not enforce one response per person.
 
 ## View
 
@@ -16,7 +18,7 @@ All media are stored in `media/`; no external font service is used. Relative URL
 
 ## Connect collection later
 
-Supabase setup: see [`supabase/SETUP.zh-CN.md`](supabase/SETUP.zh-CN.md) and run [`supabase/setup.sql`](supabase/setup.sql). The project URL is configured; the public key is still missing. Keep `collectionEnabled: false` until a real submission is verified. A generic independent HTTPS endpoint is also supported through `apiUrl`.
+Supabase setup: see [`supabase/SETUP.zh-CN.md`](supabase/SETUP.zh-CN.md) and run [`supabase/setup.sql`](supabase/setup.sql). The project URL and publishable key are configured, and collection is enabled after a real API submission was verified. A generic independent HTTPS endpoint is also supported through `apiUrl`.
 
 The endpoint must accept a JSON POST containing `id` (random UUID), `consent`, `version`, `answers` (five entries with `choice`, `confidence` and `seconds`) and total `duration`. Validate consent and every field, restrict CORS to the deployed website, make response IDs idempotent, score server-side and persist answers before reporting success. Return `{id, score, review}` where `review` has five `{answer, explanation, source}` entries. Return a non-2xx status if storage fails. Review the privacy text before launching the study.
 
