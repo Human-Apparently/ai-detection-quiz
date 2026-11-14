@@ -39,9 +39,9 @@ const questions=[
 {type:'Image',title:'A little afternoon escape.',name:'The corner café',src:'./media/cafe.jpg',alt:'A quiet street café with pale buildings, a striped awning and plants'},
 {type:'Image',title:'A face. A thousand details.',name:'The portrait',src:'./media/portrait.jpg',alt:'Outdoor portrait of a smiling woman'},
 {type:'Audio',title:'Listen between the lines.',name:'The storyteller'},
-{type:'Text',title:'Read it. Feel it. Decide.',name:'A small reflection'}
+{type:'Text',title:'Read it. Feel it. Decide.',name:'Local News Report'}
 ];
-const reading='The city wakes in layers: first the buses, then the coffee machines, then the quiet shuffle of people carrying unfinished dreams. By nine, the streets are full, but for a moment at the crossing, everyone pauses together—as if the day is taking a breath.';
+const reading='Several public libraries across Toronto will extend their evening opening hours starting next month, following an increase in demand for quiet study spaces. Under the new schedule, selected branches will remain open until 10 p.m. on weekdays, giving students and working residents more flexibility to access library facilities. The initiative follows community feedback highlighting limited study options during the evening, particularly for students balancing coursework and part-time employment. Library officials said the extended hours will be introduced on a trial basis, with attendance figures and visitor feedback used to evaluate whether the programme should continue.';
 let step=0,answers=questions.map(()=>({choice:null,confidence:null,seconds:0})),started=0,entered=0,consented=false,result=null,requestId=null,saving=false,saved=false;
 const wave=()=>'<div class="wave" aria-hidden="true">'+Array.from({length:49},(_,i)=>'<i style="--h:'+((Math.sin(i*1.7)*.5+.5)*27+5)+'px"></i>').join('')+'</div>';
 function modal(html){document.getElementById('modal-content').innerHTML=html;document.getElementById('modal').showModal()}
