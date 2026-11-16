@@ -16,5 +16,5 @@ Seven screens: introduction, three image questions, one audio question, one text
 - The landing heading scales with viewport width; small text is at least 16px.
 - Audio has custom play/pause, seeking, time and volume controls. No native overflow menu, speed selector or download action is shown.
 - Result sharing/download actions are removed; the final-year project sharing invitation is plain text.
-- The navigation uses the approved transparent blue PNG logo at `brand-assets/human-apparently-blue.png`, sized to the navigation height. All seven screens share this header. To use another variant, update the `.brand-image` source in `index.html`.
+- The navigation uses the approved transparent blue PNG logo at `brand-assets/human-apparently-blue.png`, sized to the navigation height. All seven screens share this header. Only this blue, unframed PNG logo is retained in `brand-assets`; preview screenshots and alternative logo files are excluded.
 - All five Human-made/AI-generated choice buttons have text labels only.
